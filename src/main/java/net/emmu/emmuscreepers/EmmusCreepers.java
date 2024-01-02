@@ -1,6 +1,8 @@
 package net.emmu.emmuscreepers;
 
 import com.mojang.logging.LogUtils;
+import net.emmu.emmuscreepers.item.ModCreativeModeTabs;
+import net.emmu.emmuscreepers.item.ModItems;
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
@@ -28,6 +30,10 @@ public class EmmusCreepers {
     public EmmusCreepers() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -40,6 +46,10 @@ public class EmmusCreepers {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+            event.accept(ModItems.CHEESECREEPERSPAWNEGG);
+            event.accept(ModItems.CHEESE);
+        }
 
     }
 
