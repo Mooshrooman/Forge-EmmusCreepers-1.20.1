@@ -1,6 +1,7 @@
 package net.emmu.emmuscreepers.item;
 
 import net.emmu.emmuscreepers.EmmusCreepers;
+import net.emmu.emmuscreepers.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -20,6 +21,8 @@ public static final RegistryObject<CreativeModeTab> EMMUS_CREEPERS_TAB = CREATIV
                     pOutput.accept(ModItems.CHEESECREEPERSPAWNEGG.get());
                     pOutput.accept(ModItems.CHEESE.get());
 
+                    pOutput.accept(ModBlocks.CHEESE_BLOCK.get());
+                    pOutput.accept(ModBlocks.MOLDY_CHEESE_BLOCK.get());
 
                 })
                 .build());

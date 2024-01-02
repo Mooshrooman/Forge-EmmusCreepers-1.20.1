@@ -1,6 +1,7 @@
 package net.emmu.emmuscreepers;
 
 import com.mojang.logging.LogUtils;
+import net.emmu.emmuscreepers.block.ModBlocks;
 import net.emmu.emmuscreepers.item.ModCreativeModeTabs;
 import net.emmu.emmuscreepers.item.ModItems;
 import net.minecraft.client.Minecraft;
@@ -33,6 +34,7 @@ public class EmmusCreepers {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
         modEventBus.addListener(this::commonSetup);
 
