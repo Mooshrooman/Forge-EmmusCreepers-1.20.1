@@ -20,6 +20,7 @@ public static final RegistryObject<CreativeModeTab> EMMUS_CREEPERS_TAB = CREATIV
                 .displayItems((pParameters, pOutput) -> {
                     pOutput.accept(ModItems.CHEESECREEPERSPAWNEGG.get());
                     pOutput.accept(ModItems.CHEESE.get());
+                    pOutput.accept(ModItems.MELTY_CHEESE.get());
 
                     pOutput.accept(ModBlocks.CHEESE_BLOCK.get());
                     pOutput.accept(ModBlocks.MOLDY_CHEESE_BLOCK.get());

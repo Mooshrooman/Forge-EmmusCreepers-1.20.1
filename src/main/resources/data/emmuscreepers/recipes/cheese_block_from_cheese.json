@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+    "item": "emmuscreepers:cheese"
+  }
+},
+  "result": {
+    "item": "emmuscreepers:cheese_block"
+  }
+}
