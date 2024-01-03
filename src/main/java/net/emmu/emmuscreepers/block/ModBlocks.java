@@ -20,10 +20,10 @@ public class ModBlocks {
          DeferredRegister.create(ForgeRegistries.BLOCKS, EmmusCreepers.MOD_ID);
 
 public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.SPONGE).sound(SoundType.SLIME_BLOCK)));
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.SLIME_BLOCK).strength(1f)));
 
 public static final RegistryObject<Block> MOLDY_CHEESE_BLOCK = registerBlock("moldy_cheese_block",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.SPONGE).sound(SoundType.SLIME_BLOCK)));
+        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.SLIME_BLOCK).strength(1f)));
 
  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
      RegistryObject<T> toReturn = BLOCKS.register(name, block);

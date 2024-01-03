@@ -1,6 +1,7 @@
 package net.emmu.emmuscreepers.item;
 
 import net.emmu.emmuscreepers.EmmusCreepers;
+import net.emmu.emmuscreepers.item.custom.MeltyCheeseItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
@@ -14,10 +15,9 @@ public class ModItems {
     public static final RegistryObject<Item> CHEESECREEPERSPAWNEGG = ITEMS.register("cheese_creeper_spawn_egg",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> CHEESE = ITEMS.register("cheese",
-            () -> new Item(new Item.Properties()));
+            () -> new Item(new Item.Properties().food(ModFoods.CHEESE)));
     public static final RegistryObject<Item> MELTY_CHEESE = ITEMS.register("melty_cheese",
-            () -> new Item(new Item.Properties()));
-
+            () -> new MeltyCheeseItem(new Item.Properties().food(ModFoods.MELTY_CHEESE)));
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }
