@@ -48,10 +48,6 @@ public class EmmusCreepers {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
-            event.accept(ModItems.CHEESECREEPERSPAWNEGG);
-            event.accept(ModItems.CHEESE);
-        }
 
     }
 

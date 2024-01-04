@@ -18,7 +18,6 @@ public static final RegistryObject<CreativeModeTab> EMMUS_CREEPERS_TAB = CREATIV
         () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.CHEESE.get()))
                 .title(Component.translatable("creativetab.emmus_creepers_tab"))
                 .displayItems((pParameters, pOutput) -> {
-                    pOutput.accept(ModItems.CHEESECREEPERSPAWNEGG.get());
                     pOutput.accept(ModItems.CHEESE.get());
                     pOutput.accept(ModItems.MELTY_CHEESE.get());
 
