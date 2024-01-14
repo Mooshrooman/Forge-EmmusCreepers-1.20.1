@@ -24,6 +24,8 @@ public static final RegistryObject<CreativeModeTab> EMMUS_CREEPERS_TAB = CREATIV
                     pOutput.accept(ModBlocks.CHEESE_BLOCK.get());
                     pOutput.accept(ModBlocks.MOLDY_CHEESE_BLOCK.get());
 
+                    pOutput.accept(ModItems.CHEESE_CREEPER_SPAWN_EGG.get());
+
                 })
                 .build());
     public static void register(IEventBus eventBus){

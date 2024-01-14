@@ -2,9 +2,12 @@ package net.emmu.emmuscreepers;
 
 import com.mojang.logging.LogUtils;
 import net.emmu.emmuscreepers.block.ModBlocks;
+import net.emmu.emmuscreepers.entity.ModEntities;
+import net.emmu.emmuscreepers.entity.client.CheeseCreeperRenderer;
 import net.emmu.emmuscreepers.item.ModCreativeModeTabs;
 import net.emmu.emmuscreepers.item.ModItems;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
@@ -36,6 +39,8 @@ public class EmmusCreepers {
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
 
+        ModEntities.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -62,7 +67,7 @@ public class EmmusCreepers {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-
+            EntityRenderers.register(ModEntities.CHEESECREEPER.get(), CheeseCreeperRenderer::new);
         }
     }
 }
