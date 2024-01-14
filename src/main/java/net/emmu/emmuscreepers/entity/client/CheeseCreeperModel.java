@@ -14,6 +14,7 @@ import net.minecraft.client.model.geom.builders.*;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import org.jetbrains.annotations.NotNull;
 
 public class CheeseCreeperModel<T extends Entity> extends HierarchicalModel<CheeseCreeperEntity> {
@@ -55,13 +56,19 @@ public class CheeseCreeperModel<T extends Entity> extends HierarchicalModel<Chee
 		root().getAllParts().forEach(ModelPart::resetPose);
 		animate(entity.idleAnimationState, ModAnimationsDefinitions.IDLE, ageInTicks, 1.0F);
 
-		if(!entity.isInWaterOrBubble()) {
+		if(entity.isAggressive() && entity.isPathFinding()) {
+			animateWalk(ModAnimationsDefinitions.RUN, limbSwing, limbSwingAmount,
+					4.0f, 2.5f);
+		}
+
+		if(!entity.isInWaterOrBubble() && !entity.isAggressive()) {
 			animateWalk(ModAnimationsDefinitions.WALK, limbSwing, limbSwingAmount,
 					4.0f,2.5f);
 		}else{
 			animateWalk(ModAnimationsDefinitions.RUN, limbSwing, limbSwingAmount,
 					4.0f, 2.5f);
 		}
+
 	}
 
 	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
