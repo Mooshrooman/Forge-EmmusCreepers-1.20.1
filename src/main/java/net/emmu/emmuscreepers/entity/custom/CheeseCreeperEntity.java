@@ -1,10 +1,7 @@
 package net.emmu.emmuscreepers.entity.custom;
 
-import net.minecraft.util.Mth;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.Pose;
-import net.minecraft.world.entity.PowerableMob;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -17,7 +14,8 @@ import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
-public class CheeseCreeperEntity extends Creeper implements PowerableMob {
+public class CheeseCreeperEntity extends Creeper {
+
     public CheeseCreeperEntity(EntityType<? extends Creeper> pEntityType, Level pLevel) {
         super(pEntityType, pLevel);
     }
@@ -46,6 +44,7 @@ public class CheeseCreeperEntity extends Creeper implements PowerableMob {
     public void tick() {
         if (level().isClientSide) {
             this.idleAnimationState.animateWhen(!isInWaterOrBubble() && !this.walkAnimation.isMoving(), this.tickCount);
+
         }
         super.tick();
     }

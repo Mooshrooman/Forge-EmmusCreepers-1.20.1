@@ -4,6 +4,7 @@ import net.emmu.emmuscreepers.EmmusCreepers;
 import net.emmu.emmuscreepers.entity.custom.CheeseCreeperEntity;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
+import net.minecraft.client.renderer.entity.layers.CreeperPowerLayer;
 import net.minecraft.resources.ResourceLocation;
 
 public class CheeseCreeperRenderer extends MobRenderer<CheeseCreeperEntity, CheeseCreeperModel<CheeseCreeperEntity>> {

@@ -6,5 +6,7 @@
   "block.emmuscreepers.cheese_block": "Block of Cheese",
   "block.emmuscreepers.moldy_cheese_block": "Block of Moldy Cheese",
 
+  "net.emmu.emmuscreepers.entity.custom.cheesecreeper": "emmuscreepers:cheesecreeper",
+
   "creativetab.emmus_creepers_tab": "Emmu's Creepers"
 }
