@@ -49,7 +49,10 @@ public class CheeseCreeperModel<T extends Entity> extends HierarchicalModel<Chee
 	@Override
 	public void setupAnim(@NotNull CheeseCreeperEntity entity, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw, float headPitch) {
 		root().getAllParts().forEach(ModelPart::resetPose);
-		animate(entity.idleAnimationState, ModAnimationsDefinitions.IDLE, ageInTicks, 1.0F);
+		this.head.yRot = netHeadYaw * ((float)Math.PI / 180F);
+		this.head.xRot = headPitch * ((float)Math.PI / 180F);
+		animate(entity.idleAnimationState, ModAnimationsDefinitions.IDLE, ageInTicks, 1.6F);
+		animate(entity.swellAnimationState, ModAnimationsDefinitions.SWELL, ageInTicks, 0.95F);
 
 		if(entity.isAggressive() && entity.isPathFinding()) {
 			animateWalk(ModAnimationsDefinitions.RUN, limbSwing, limbSwingAmount,
@@ -64,14 +67,6 @@ public class CheeseCreeperModel<T extends Entity> extends HierarchicalModel<Chee
 					4.0f, 2.5f);
 		}
 
-	}
-
-	private void applyHeadRotation(float pNetHeadYaw, float pHeadPitch, float pAgeInTicks) {
-		pNetHeadYaw = Mth.clamp(pNetHeadYaw, -30.0F, 30.0F);
-		pHeadPitch = Mth.clamp(pHeadPitch, -25.0F, 45.0F);
-
-		this.head.yRot = pNetHeadYaw * ((float)Math.PI / 180F);
-		this.head.xRot = pHeadPitch * ((float)Math.PI / 180F);
 	}
 
 	@Override
