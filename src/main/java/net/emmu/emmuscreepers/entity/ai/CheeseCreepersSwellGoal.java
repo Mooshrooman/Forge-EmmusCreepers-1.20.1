@@ -4,6 +4,8 @@ import net.emmu.emmuscreepers.entity.custom.CheeseCreeperEntity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 
+import java.util.EnumSet;
+
 public class CheeseCreepersSwellGoal extends Goal {
 
     private LivingEntity target;
@@ -11,6 +13,7 @@ public class CheeseCreepersSwellGoal extends Goal {
 
     public CheeseCreepersSwellGoal(CheeseCreeperEntity pCheeseCreeper){
         this.creeper = pCheeseCreeper;
+        this.setFlags(EnumSet.of(Goal.Flag.MOVE));
     }
 
     @Override

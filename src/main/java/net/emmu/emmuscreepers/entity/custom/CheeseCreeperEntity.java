@@ -1,5 +1,6 @@
 package net.emmu.emmuscreepers.entity.custom;
 
+import net.emmu.emmuscreepers.block.ModBlocks;
 import net.emmu.emmuscreepers.entity.ai.CheeseCreepersSwellGoal;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -12,9 +13,7 @@ import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
-import net.minecraft.world.entity.AnimationState;
-import net.minecraft.world.entity.EntityType;
-import net.minecraft.world.entity.LightningBolt;
+import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
@@ -30,7 +29,9 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.gameevent.GameEvent;
 
-public class CheeseCreeperEntity extends Creeper {
+import java.util.Random;
+
+public class CheeseCreeperEntity extends Creeper implements PowerableMob {
     private int explosionRadius = 3;
     private int swell;
     private int swell2;
@@ -56,7 +57,6 @@ public class CheeseCreeperEntity extends Creeper {
     @Override
     protected void registerGoals() {
         this.goalSelector.addGoal(1, new FloatGoal(this));
-        this.goalSelector.addGoal(2, new SwellGoal(this));
         this.goalSelector.addGoal(2, new CheeseCreepersSwellGoal(this));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Ocelot.class, 6.0F, 1.0D, 1.2D));
         this.goalSelector.addGoal(3, new AvoidEntityGoal<>(this, Cat.class, 6.0F, 1.0D, 1.2D));
@@ -72,9 +72,9 @@ public class CheeseCreeperEntity extends Creeper {
     public void tick() {
         if (level().isClientSide) {
             this.idleAnimationState.animateWhen(!isInWaterOrBubble() && !this.walkAnimation.isMoving(), this.tickCount);
-                setupAnimationStates();
-
-                if (this.isAlive()) {
+            setupAnimationStates();
+        }
+            if (this.isAlive()) {
                     if (this.isIgnited()) {
                         this.setSwellNumber(1);
                     }
@@ -93,11 +93,55 @@ public class CheeseCreeperEntity extends Creeper {
                     if (this.swell >= this.maxSwell) {
                         this.swell = this.maxSwell;
                         this.explodeCreeper();
+                        if (!level().isClientSide && !this.entityData.get(DATA_IS_POWERED)){
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                        }else if (!level().isClientSide && this.entityData.get(DATA_IS_POWERED)){
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                        }
                     }
             }
-        }
         super.tick();
 
+    }
+
+    public int randomXPos() {
+        Random randomX = new Random();
+        return 2 - randomX.nextInt(4);
+    }
+
+    public int randomYPos() {
+        Random randomY = new Random();
+        return (randomY.nextInt(3) + 1) * -1;
+    }
+
+    public int randomZPos() {
+        Random randomZ = new Random();
+        return 2 - randomZ.nextInt(4);
+    }
+
+    public int randomChargedPos() {
+        Random randomX = new Random();
+        return 8 - randomX.nextInt(16);
     }
 
     public int getSwellNumber() {
@@ -106,7 +150,7 @@ public class CheeseCreeperEntity extends Creeper {
 
 
     private void explodeCreeper() {
-        if (!this.level().isClientSide) {
+        if (!level().isClientSide) {
             float f = this.isPowered() ? 2.0F : 1.0F;
             this.dead = true;
             this.level().explode(this, this.getX(), this.getY(), this.getZ(), (float)this.explosionRadius * f, Level.ExplosionInteraction.MOB);

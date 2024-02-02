@@ -4,6 +4,7 @@ import net.emmu.emmuscreepers.EmmusCreepers;
 import net.emmu.emmuscreepers.entity.custom.CheeseCreeperEntity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.monster.Creeper;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

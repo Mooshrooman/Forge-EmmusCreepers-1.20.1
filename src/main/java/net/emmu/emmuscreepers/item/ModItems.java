@@ -2,6 +2,7 @@ package net.emmu.emmuscreepers.item;
 
 import net.emmu.emmuscreepers.EmmusCreepers;
 import net.emmu.emmuscreepers.entity.ModEntities;
+import net.emmu.emmuscreepers.item.custom.EatAndPlaceCheeseBlock;
 import net.emmu.emmuscreepers.item.custom.MeltyCheeseItem;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -18,6 +19,8 @@ public class ModItems {
             () -> new Item(new Item.Properties().food(ModFoods.CHEESE)));
     public static final RegistryObject<Item> MELTY_CHEESE = ITEMS.register("melty_cheese",
             () -> new MeltyCheeseItem(new Item.Properties().food(ModFoods.MELTY_CHEESE)));
+    public static final RegistryObject<Item> EAT_AND_PLACE_CHEESEBLOCK = ITEMS.register("eat_and_place_cheeseblock",
+            () -> new EatAndPlaceCheeseBlock(new Item.Properties().food(ModFoods.EATANDPLACEITEM)));
 
     public static final RegistryObject<ForgeSpawnEggItem> CHEESE_CREEPER_SPAWN_EGG = ITEMS.register("cheese_creeper_spawn_egg",
             () -> new ForgeSpawnEggItem(ModEntities.CHEESECREEPER, 0xFFCC20,0xC69E18,
