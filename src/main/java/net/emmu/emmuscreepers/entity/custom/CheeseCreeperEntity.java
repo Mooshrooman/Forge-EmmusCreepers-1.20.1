@@ -94,29 +94,17 @@ public class CheeseCreeperEntity extends Creeper implements PowerableMob {
                         this.swell = this.maxSwell;
                         this.explodeCreeper();
                         if (!level().isClientSide && !this.entityData.get(DATA_IS_POWERED)){
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomXPos(),randomYPos(),randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            int numberOfIterations = 0;
+                            while (numberOfIterations <= 7) {
+                                level().setBlock(blockPosition().offset(randomXPos(), randomYPos(), randomZPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                                ++numberOfIterations;
+                            }
                         }else if (!level().isClientSide && this.entityData.get(DATA_IS_POWERED)){
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
-                            level().setBlock(blockPosition().offset(randomChargedPos(),randomChargedPos(),randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                            int numberOfIterations = 0;
+                            while (numberOfIterations <= 25) {
+                                level().setBlock(blockPosition().offset(randomChargedPos(), randomYPos(), randomChargedPos()), ModBlocks.CHEESE_BLOCK.get().defaultBlockState(), 3);
+                                ++numberOfIterations;
+                            }
                         }
                     }
             }
@@ -141,7 +129,7 @@ public class CheeseCreeperEntity extends Creeper implements PowerableMob {
 
     public int randomChargedPos() {
         Random randomX = new Random();
-        return 8 - randomX.nextInt(16);
+        return 4 - randomX.nextInt(8);
     }
 
     public int getSwellNumber() {
