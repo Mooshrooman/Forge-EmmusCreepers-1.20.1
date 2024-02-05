@@ -11,9 +11,4 @@ public class ModFoods {
 
     public static final FoodProperties MELTY_CHEESE = new FoodProperties.Builder().nutrition(8)
             .saturationMod(0.9F).build();
-
-    public static final FoodProperties EATANDPLACEITEM = new FoodProperties.Builder().nutrition(8)
-            .saturationMod(0.9F).build();
-
-
 }

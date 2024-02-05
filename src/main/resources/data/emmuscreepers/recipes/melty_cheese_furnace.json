@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "category": "food",
+  "cookingtime": 100,
+  "experience": 0.3,
+  "ingredient": {
+    "item": "emmuscreepers:cheese"
+  },
+  "result": "emmuscreepers:melty_cheese"
+}

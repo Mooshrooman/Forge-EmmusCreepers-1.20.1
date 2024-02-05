@@ -7,12 +7,12 @@ import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.MobRenderer;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.monster.Creeper;
 
 public class CheeseCreeperRenderer extends MobRenderer<CheeseCreeperEntity, CheeseCreeperModel<CheeseCreeperEntity>> {
 
     public CheeseCreeperRenderer(EntityRendererProvider.Context pContext) {
         super(pContext, new CheeseCreeperModel<>(pContext.bakeLayer(ModModelLayers.CHEESECREEPER_LAYER)), 0.5f);
+        this.addLayer(new CheeseCreeperPowerLayer(this, pContext.getModelSet()));
     }
 
     protected void scale(CheeseCreeperEntity pLivingEntity, PoseStack pPoseStack, float pPartialTickTime) {
