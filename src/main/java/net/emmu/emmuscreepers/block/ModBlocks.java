@@ -1,6 +1,7 @@
 package net.emmu.emmuscreepers.block;
 
 import net.emmu.emmuscreepers.EmmusCreepers;
+import net.emmu.emmuscreepers.block.custom.CheeseBlock;
 import net.emmu.emmuscreepers.item.ModItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -20,10 +21,11 @@ public class ModBlocks {
          DeferredRegister.create(ForgeRegistries.BLOCKS, EmmusCreepers.MOD_ID);
 
 public static final RegistryObject<Block> CHEESE_BLOCK = registerBlock("cheese_block",
-        () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.SLIME_BLOCK).strength(1f)));
+        () -> new CheeseBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.SLIME_BLOCK).strength(1f)));
 
 public static final RegistryObject<Block> MOLDY_CHEESE_BLOCK = registerBlock("moldy_cheese_block",
         () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).sound(SoundType.SLIME_BLOCK).strength(1f)));
+
 
  private static <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block) {
      RegistryObject<T> toReturn = BLOCKS.register(name, block);
